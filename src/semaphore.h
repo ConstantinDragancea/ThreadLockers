@@ -2,7 +2,7 @@
 #define SEMAPHORE_H_
 
 struct Semaphore {
-
+    int cnt;
 };
 
 #endif // SEMAPHORE_H_
