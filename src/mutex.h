@@ -7,7 +7,6 @@ typedef struct __Mutex Mutex;
 
 struct __Mutex {
     bool is_locked;
-    int lol;
 };
 
 // Initializes the mutex

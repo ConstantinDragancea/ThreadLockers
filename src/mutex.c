@@ -37,8 +37,8 @@ int mutex_unlock(Mutex* mutex){
         perror(message);
         return -1;
     }
-    bool res = __sync_val_compare_and_swap(&(mutex->is_locked), true, false);
-    res = res;
+    //bool res = __sync_val_compare_and_swap(&(mutex->is_locked), true, false);
+    mutex->is_locked = false;
     return 0;
 }
 
@@ -51,4 +51,3 @@ int mutex_destroy(Mutex* mutex){
     }
     return 0;
 }
-
