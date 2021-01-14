@@ -2,11 +2,15 @@
 #define MUTEX_H_
 
 #include <stdbool.h>
+#include "thread_queue.h"
 
 typedef struct __Mutex Mutex;
 
 struct __Mutex {
     bool is_locked;
+    bool sleep_guard;
+    bool guard;
+    Thread_Queue* thr_queue;
 };
 
 // Initializes the mutex
