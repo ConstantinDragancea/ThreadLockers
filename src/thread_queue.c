@@ -1,14 +1,8 @@
 #include "thread_queue.h"
 
-void Create_Node(Node* node, pthread_t* thr){
-    // node = malloc(sizeof(Node));
-    node->thread = thr;
-    node->next = NULL;
-}
-
 void Free_Node(Node* node){
     free(node->thread);
-    free(node->next);
+    // free(node->next);
     free(node);
 }
 
@@ -29,7 +23,8 @@ void TQueue_Push(Thread_Queue* tq, pthread_t* thr){
         exit(-1);
     }
     Node* node = malloc(sizeof(Node));
-    Create_Node(node, thr);
+    node->thread = thr;
+    node->next = NULL;
     if (tq->front == NULL){
         tq->front = node;
         tq->back = node;
@@ -39,7 +34,7 @@ void TQueue_Push(Thread_Queue* tq, pthread_t* thr){
         tq->back->next = node;
         tq->back = node;
         tq->count++;
-    }    
+    }
 }
 
 pthread_t* TQueue_Front(Thread_Queue* tq){
@@ -80,6 +75,7 @@ void TQueue_Clear(Thread_Queue* tq){
 
 void TQueue_Print(Thread_Queue* tq){
     if (tq->front == NULL){
+        printf("Empty queue --------------------------\n");
         return;
     }
     for (Node* node = tq->front; node; node = node->next){

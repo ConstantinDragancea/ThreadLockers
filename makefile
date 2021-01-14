@@ -3,7 +3,7 @@ FLAGS=-O0 -g
 SRC:=$(wildcard ./src/*.c)
 DEMOS:=$(wildcard ./demos/*.c)
 LIB:=-Isrc -pthread
-SANITIZER:=-fsanitize=address,undefined,signed-integer-overflow
+SANITIZER:=-fsanitize=undefined,signed-integer-overflow
 WARNINGS:= -Wall -Wextra
 
 COMP_FLAGS:=$(FLAGS) $(SANITIZER) $(WARNINGS)

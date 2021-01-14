@@ -16,8 +16,6 @@ typedef struct Thread_Queue{
     Node* back;
 } Thread_Queue;
 
-void Create_Node(Node* node, pthread_t* thr);
-
 void Free_Node(Node* node);
 
 void TQueue_Init(Thread_Queue* tq);
