@@ -17,7 +17,10 @@ mutex_demo:
 semaphore_demo:
 	$(CC) $(COMP_FLAGS) $(LIB) $(SRC) ./demos/semaphore_demo.c -o semaphore_demo.out
 
-demos: mutex_demo semaphore_demo
+rwlock_demo:
+	$(CC) $(COMP_FLAGS) $(LIB) $(SRC) ./demos/rwlock_demo.c -o rwlock_demo.out
+
+demos: mutex_demo semaphore_demo rwlock_demo
 
 clean:
 	rm *.out

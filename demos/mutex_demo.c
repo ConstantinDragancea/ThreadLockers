@@ -76,19 +76,3 @@ int main(){
 
     return 0;
 }
-// int main(){
-//     mutex_init(&(mtx));
-//     pthread_t* thr = malloc(sizeof(pthread_t));
-//     *thr = pthread_self();
-//     TQueue_Push(mtx.thr_queue, thr);
-//     printf("count: %d\n", mtx.thr_queue->count);
-//     TQueue_Push(mtx.thr_queue, thr);
-//     printf("count: %d\n", mtx.thr_queue->count);
-//     printf("%d\n", *TQueue_Pop(mtx.thr_queue));
-//     printf("count: %d\n", mtx.thr_queue->count);
-//     printf("%d\n", *TQueue_Pop(mtx.thr_queue));
-//     printf("count: %d\n", mtx.thr_queue->count);
-//     printf("%d\n", *TQueue_Pop(mtx.thr_queue));
-//     printf("count: %d\n", mtx.thr_queue->count);
-//     return 0;
-// }

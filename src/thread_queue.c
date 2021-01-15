@@ -11,7 +11,7 @@ void TQueue_Init(Thread_Queue* tq){
     tq->count = 0;
     tq->front = NULL;
     tq->back = NULL;
-    printf("Initialised the queue!\n");
+    // printf("Initialised the queue!\n");
 }
 
 void TQueue_Push(Thread_Queue* tq, pthread_t* thr){
