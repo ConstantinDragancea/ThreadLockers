@@ -2,15 +2,12 @@
 
 void Free_Node(Node* node){
     free(node->thread);
-    // free(node->next);
     free(node);
 }
 
 void TQueue_Init(Thread_Queue* tq){
-    // if (tq != NULL){
-        // TQueue_Clear(tq);
-    // }
-    // tq = malloc(sizeof(Thread_Queue));
+    // TQueue_Clear(tq);
+    tq = malloc(sizeof(Thread_Queue));
     tq->count = 0;
     tq->front = NULL;
     tq->back = NULL;
@@ -22,9 +19,11 @@ void TQueue_Push(Thread_Queue* tq, pthread_t* thr){
         printf("Tried to push to uninitialised queue!\n");
         exit(-1);
     }
+
     Node* node = malloc(sizeof(Node));
     node->thread = thr;
     node->next = NULL;
+
     if (tq->front == NULL){
         tq->front = node;
         tq->back = node;
@@ -64,6 +63,9 @@ pthread_t* TQueue_Pop(Thread_Queue* tq){
 }
 
 void TQueue_Clear(Thread_Queue* tq){
+    if (tq == NULL){
+        return;
+    }
     Node* current;
     Node* next;
     for (current = tq->front; current != NULL; current = next){

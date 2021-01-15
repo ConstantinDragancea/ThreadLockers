@@ -3,23 +3,22 @@
 
 #include <stdbool.h>
 
-typedef struct __Mutex Mutex;
+typedef struct __Mutex_Slow_Slow Mutex_Slow;
 
-struct __Mutex {
+struct __Mutex_Slow {
     bool is_locked;
-    int lol;
 };
 
 // Initializes the mutex
-int mutex_init(Mutex* mutex);
+int mutex_slow_init(Mutex_Slow* mutex);
 
 // Locks the mutex, ensures only one thread accesses critical section
-int mutex_lock(Mutex* mutex);
+int mutex_slow_lock(Mutex_Slow* mutex);
 
 // Unlocks the mutex, allows others threads to access section
-int mutex_unlock(Mutex* mutex);
+int mutex_slow_unlock(Mutex_Slow* mutex);
 
 // Destroys the mutex, frees up the memory
-int mutex_destroy(Mutex* mutex);
+int mutex_slow_destroy(Mutex_Slow* mutex);
 
 #endif // MUTEX_SLOW_H_ 

@@ -8,7 +8,6 @@ typedef struct __Mutex Mutex;
 
 struct __Mutex {
     bool is_locked;
-    bool sleep_guard;
     bool guard;
     Thread_Queue* thr_queue;
 };

@@ -4,7 +4,7 @@
 
 #include "mutex.h"
 
-int mutex_init(Mutex* mutex){
+int mutex_slow_init(Mutex* mutex){
     if (mutex == NULL){
         printf("Null mutex given to initialise!\n");
         char message[] = "Error message: ";
@@ -15,7 +15,7 @@ int mutex_init(Mutex* mutex){
     return 0;
 }
 
-int mutex_lock(Mutex* mutex){
+int mutex_slow_lock(Mutex* mutex){
     if (mutex == NULL){
         printf("Null mutex given to lock!\n");
         char message[] = "Error message: ";
@@ -30,7 +30,7 @@ int mutex_lock(Mutex* mutex){
     return 0;
 }
 
-int mutex_unlock(Mutex* mutex){
+int mutex_slow_unlock(Mutex* mutex){
     if (mutex == NULL){
         printf("Null mutex given to unlock!\n");
         char message[] = "Error message: ";
@@ -42,7 +42,7 @@ int mutex_unlock(Mutex* mutex){
     return 0;
 }
 
-int mutex_destroy(Mutex* mutex){
+int mutex_slow_destroy(Mutex* mutex){
     if (mutex == NULL){
         printf("Null mutex given to destroy!\n");
         char message[] = "Error message: ";
