@@ -1,10 +1,15 @@
 #ifndef SEMAPHORE_H_
 #define SEMAPHORE_H_
 
+#include <stdbool.h>
+#include "thread_queue.h"
+
 typedef struct Semaphore Semaphore;
 
 struct Semaphore {
     int cntThreads;
+    bool guard;
+    Thread_Queue* thr_queue;
 };
 
 // Initialize the semaphore

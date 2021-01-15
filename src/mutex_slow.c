@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include "mutex.h"
+#include "mutex_slow.h"
 
-int mutex_slow_init(Mutex* mutex){
+int mutex_slow_init(Mutex_Slow* mutex){
     if (mutex == NULL){
         printf("Null mutex given to initialise!\n");
         char message[] = "Error message: ";
@@ -15,7 +15,7 @@ int mutex_slow_init(Mutex* mutex){
     return 0;
 }
 
-int mutex_slow_lock(Mutex* mutex){
+int mutex_slow_lock(Mutex_Slow* mutex){
     if (mutex == NULL){
         printf("Null mutex given to lock!\n");
         char message[] = "Error message: ";
@@ -30,7 +30,7 @@ int mutex_slow_lock(Mutex* mutex){
     return 0;
 }
 
-int mutex_slow_unlock(Mutex* mutex){
+int mutex_slow_unlock(Mutex_Slow* mutex){
     if (mutex == NULL){
         printf("Null mutex given to unlock!\n");
         char message[] = "Error message: ";
@@ -38,11 +38,10 @@ int mutex_slow_unlock(Mutex* mutex){
         return -1;
     }
     bool res = __sync_val_compare_and_swap(&(mutex->is_locked), true, false);
-    res = res;
     return 0;
 }
 
-int mutex_slow_destroy(Mutex* mutex){
+int mutex_slow_destroy(Mutex_Slow* mutex){
     if (mutex == NULL){
         printf("Null mutex given to destroy!\n");
         char message[] = "Error message: ";

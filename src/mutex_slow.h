@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-typedef struct __Mutex_Slow_Slow Mutex_Slow;
+typedef struct __Mutex_Slow Mutex_Slow;
 
 struct __Mutex_Slow {
     bool is_locked;
