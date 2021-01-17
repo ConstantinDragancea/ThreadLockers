@@ -1,4 +1,5 @@
 #include "thread_queue.h"
+#include <stdio.h>
 
 void Free_Node(Node* node){
     free(node->thread);

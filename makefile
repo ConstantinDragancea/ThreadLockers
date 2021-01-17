@@ -8,8 +8,7 @@ WARNINGS:= -Wall -Wextra
 
 COMP_FLAGS:=$(FLAGS) $(SANITIZER) $(WARNINGS)
 
-all:
-	$(CC) $(COMP_FLAGS) $(LIB) $(SRC) ./main.c -o main.out
+demos: mutex_demo semaphore_demo rwlock_demo
 
 mutex_demo:
 	$(CC) $(COMP_FLAGS) $(LIB) $(SRC) ./demos/mutex_demo.c -o mutex_demo.out
@@ -19,8 +18,6 @@ semaphore_demo:
 
 rwlock_demo:
 	$(CC) $(COMP_FLAGS) $(LIB) $(SRC) ./demos/rwlock_demo.c -o rwlock_demo.out
-
-demos: mutex_demo semaphore_demo rwlock_demo
 
 clean:
 	rm *.out
